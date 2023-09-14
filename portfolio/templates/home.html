@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header>
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/perfil.jpg' %}" alt="">
+    </div>
+  <div class="col-md-8 my-auto ">
+<h1>    Somos <strong>Jery-Hen</strong></h1>
+<h3> Los mejores estudiantes de base de datos</h3>
+<p>Los Estudiantes Jeremy Mero y Henry Macias estamos dispuesto a dar todo por pasar la materia, en este primer post nos hemos madrugado haciendo el trabajo, nos ha costado mucho, pero vamos a lograrlo</p>
+<a href="{% static 'portfolio/curriculum.pdf' %}" class="btn btn-primary btn-lg rounded0- my-3">Download CV</a>
+  </div>
+</header>
+
+
+<div class="row my-4 text-center">
+    <h3>Nuestros Proyectos</h3>
+    <P>Este es nuestro projecto madrugador, literalmente</P>
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4 bg-black">
+        <div class="card bg-black card-project">
+            <div class="card-body">
+                <h2>{{project.title}}</h2>
+<p>{{project.description}}</p>
+<img src="{{project.image.url}}" alt="{{project.tittle}}" class="img-fluid">
+
+{% if prooject.url %}
+<a href="{{project.url}}">{{project.url}}</a>
+
+
+{% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock%}
+</div>
+
